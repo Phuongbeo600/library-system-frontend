@@ -39,7 +39,7 @@ export default function Header() {
             type="text"
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            placeholder="Tìm kiếm tài liệu, mã sách..."
+            placeholder="Tìm kiếm ..."
             className="w-full pl-9 pr-4 py-2 text-xs bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-gray-800 placeholder-gray-400"
           />
         </div>

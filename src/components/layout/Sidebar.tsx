@@ -1,9 +1,11 @@
+import { NavLink } from 'react-router-dom';
+
 export default function Sidebar() {
   // Danh sách các menu điều hướng
   const menuItems = [
     {
       name: 'Tổng quan',
-      active: false,
+      path: '/dashboard', //tạm thời
       icon: (
         <path
           strokeLinecap="round"
@@ -15,7 +17,7 @@ export default function Sidebar() {
     },
     {
       name: 'Quản lý kho sách',
-      active: true, // Đang ở trang này nên làm nổi bật
+      path: '/books',
       icon: (
         <path
           strokeLinecap="round"
@@ -27,7 +29,7 @@ export default function Sidebar() {
     },
     {
       name: 'Độc giả mượn sách',
-      active: false,
+      path: '/borrows',
       icon: (
         <path
           strokeLinecap="round"
@@ -39,7 +41,7 @@ export default function Sidebar() {
     },
     {
       name: 'Báo cáo thống kê',
-      active: false,
+      path: '/reports', // Thêm đường dẫn (tạm thời)
       icon: (
         <path
           strokeLinecap="round"
@@ -75,14 +77,16 @@ export default function Sidebar() {
             Danh mục
           </p>
           {menuItems.map((item) => (
-            <button
+            <NavLink
               key={item.name}
-              type="button"
-              className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-medium transition-all ${
-                item.active
-                  ? 'bg-blue-50 text-blue-700 font-semibold shadow-xs'
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-              }`}
+              to={item.path as string}
+              className={({ isActive }) =>
+                `w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-medium transition-all ${
+                  isActive
+                    ? 'bg-blue-50 text-blue-700 font-semibold shadow-xs'
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                }`
+              }
             >
               <svg
                 className="w-4 h-4 shrink-0"
@@ -93,7 +97,7 @@ export default function Sidebar() {
                 {item.icon}
               </svg>
               <span>{item.name}</span>
-            </button>
+            </NavLink>
           ))}
         </nav>
       </div>
