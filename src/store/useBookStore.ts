@@ -1,18 +1,11 @@
 import { create } from 'zustand';
-import { bookService } from '../services/bookService';
+import { bookService, type Book } from '../services/bookService';
 
 export interface PaginationMeta {
   total: number;
   page: number;
   limit: number;
   totalPages: number;
-}
-
-// 1. Định nghĩa khuôn mẫu (Interface) của một cuốn sách
-export interface Book {
-  id: number;
-  title: string;
-  author: string;
 }
 
 // 2. Định nghĩa toàn bộ kiểu dữ liệu của Store (State + Actions)
